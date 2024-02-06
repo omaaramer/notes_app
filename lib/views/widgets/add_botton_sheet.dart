@@ -14,7 +14,14 @@ class AddModelBottomSheet extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 32),
-          CustomTetField(),
+          CustomTetField(
+            hint: 'Title',
+          ),
+          SizedBox(height: 16),
+          CustomTetField(
+            hint: 'Content',
+            maxLine: 5,
+          ),
         ],
       ),
     );
