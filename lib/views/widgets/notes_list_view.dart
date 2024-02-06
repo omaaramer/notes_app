@@ -12,7 +12,7 @@ class NotListView extends StatelessWidget {
     return Expanded(
       child: ListView.builder(itemBuilder: (context, index) {
         return const Padding(
-            padding: EdgeInsets.symmetric(vertical: 8), child: NoteItem());
+            padding: EdgeInsets.symmetric(vertical: 4), child: NoteItem());
       }),
     );
   }

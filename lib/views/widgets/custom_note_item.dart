@@ -32,18 +32,18 @@ class NoteItem extends StatelessWidget {
                   size: 30,
                 )),
             subtitle: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
+              padding: EdgeInsets.symmetric(vertical: 16),
               child: Text(
                 "Flutter is Google's UI toolkit for building beautiful,",
                 style: TextStyle(
                   color: Colors.black54,
-                  fontSize: 20,
+                  fontSize: 18,
                 ),
               ),
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(right: 24),
+            padding: EdgeInsets.only(right: 30),
             child: Text(
               "may, 2024",
               style: TextStyle(color: Colors.black),
