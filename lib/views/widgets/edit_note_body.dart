@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'custom_app_bar.dart';
+import 'custom_text_field.dart';
 
 class EditNoteBody extends StatelessWidget {
   const EditNoteBody({super.key});
@@ -19,7 +20,16 @@ class EditNoteBody extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 32),
+          CustomTetField(
+            hint: 'Title',
+          ),
+          SizedBox(height: 16),
+          CustomTetField(
+            hint: 'Content',
+            maxLine: 5,
+          ),
+          SizedBox(height: 32),
         ],
       ),
     );
