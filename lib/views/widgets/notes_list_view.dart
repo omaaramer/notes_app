@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'custom_note_item.dart';
+import '../components/custom_note_item.dart';
 
 class NotListView extends StatelessWidget {
   const NotListView({

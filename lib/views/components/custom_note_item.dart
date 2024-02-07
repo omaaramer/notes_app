@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/edit_note_view.dart';
+import 'package:notes_app/views/screens/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({

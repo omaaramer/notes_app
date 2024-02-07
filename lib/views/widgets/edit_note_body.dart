@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'custom_app_bar.dart';
-import 'custom_text_field.dart';
+import '../components/custom_app_bar.dart';
+import '../components/custom_text_field.dart';
 
 class EditNoteBody extends StatelessWidget {
   const EditNoteBody({super.key});

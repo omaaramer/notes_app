@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/custom_button.dart';
+import 'package:notes_app/views/components/custom_button.dart';
 
-import 'custom_text_field.dart';
+import '../components/custom_text_field.dart';
 
 class AddModelBottomSheet extends StatelessWidget {
   const AddModelBottomSheet({
