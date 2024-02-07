@@ -21,11 +21,11 @@ class EditNoteBody extends StatelessWidget {
             ),
           ),
           SizedBox(height: 32),
-          CustomTetField(
+          CustomTextFormField(
             hint: 'Title',
           ),
           SizedBox(height: 16),
-          CustomTetField(
+          CustomTextFormField(
             hint: 'Content',
             maxLine: 5,
           ),

@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 
-class CustomTetField extends StatelessWidget {
-  const CustomTetField({super.key, required this.hint, this.maxLine = 1});
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField(
+      {super.key, required this.hint, this.maxLine = 1, this.onSaved});
 
   final String hint;
   final int maxLine;
-
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return "This field can't be empty";
+        } else {
+          return null;
+        }
+      },
       cursorColor: kPrimaryColor,
       maxLines: maxLine,
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: TextStyle(color: kPrimaryColor),
+        hintStyle: const TextStyle(color: kPrimaryColor),
         border: buildBorder(),
       ),
     );
