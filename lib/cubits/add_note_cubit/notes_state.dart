@@ -7,12 +7,12 @@ final class NotesInitial extends NotesState {}
 
 final class NotesLoading extends NotesState {}
 
-final class NotesFaliure extends NotesState {}
-
-final class NotesError extends NotesState {
+final class NotesFaliure extends NotesState {
   final String errorMessage;
 
-  NotesError({required this.errorMessage});
+  NotesFaliure(this.errorMessage);
 }
+
+final class NotesError extends NotesState {}
 
 final class NotesSuccess extends NotesState {}

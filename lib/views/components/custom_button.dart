@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomButtun extends StatelessWidget {
-  const CustomButtun({super.key, required this.text, this.onTap});
+  const CustomButtun(
+      {super.key, required this.text, this.onTap, this.isLoading = false});
   final String text;
   final void Function()? onTap;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,12 +19,18 @@ class CustomButtun extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
           ),
           child: Center(
-            child: Text(
-              text,
-              style: const TextStyle(
-                fontSize: 20,
-              ),
-            ),
+            child: isLoading
+                ? const SizedBox(
+                    height: 24,
+                    width: 24,
+                    child: CircularProgressIndicator(),
+                  )
+                : Text(
+                    text,
+                    style: const TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
           )),
     );
   }

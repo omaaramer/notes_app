@@ -40,23 +40,28 @@ class _AddNotFormState extends State<AddNotForm> {
             maxLine: 5,
           ),
           const SizedBox(height: 32),
-          CustomButtun(
-              onTap: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                  var noteModel = NoteModel(
-                      title: title!,
-                      subTitle: subTitle!,
-                      date: DateTime.now().toString(),
-                      color: Colors.blue.value);
-                  BlocProvider.of<NotesCubit>(context).addNote(noteModel);
-                } else {
-                  //explain the following line?
-                  autovalidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
-              },
-              text: "Add"),
+          BlocBuilder<NotesCubit, NotesState>(
+            builder: (context, state) {
+              return CustomButtun(
+                  isLoading: state is NotesLoading ? true : false,
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      var noteModel = NoteModel(
+                          title: title!,
+                          subTitle: subTitle!,
+                          date: DateTime.now().toString(),
+                          color: Colors.blue.value);
+                      BlocProvider.of<NotesCubit>(context).addNote(noteModel);
+                    } else {
+                      //explain the following line?
+                      autovalidateMode = AutovalidateMode.always;
+                      setState(() {});
+                    }
+                  },
+                  text: "Add");
+            },
+          ),
           const SizedBox(height: 16),
         ],
       ),
