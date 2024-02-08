@@ -15,7 +15,7 @@ class AddModelBottomSheet extends StatelessWidget {
           listener: (context, state) {
             if (state is NotesFaliure) {
               //==============================================================
-              print("failure=========>${StateError}");
+              debugPrint("failure=========>$StateError");
             }
             if (state is NotesSuccess) {
               Navigator.pop(context);
