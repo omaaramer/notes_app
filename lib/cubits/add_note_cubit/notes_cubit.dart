@@ -8,17 +8,16 @@ part 'notes_state.dart';
 
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
-  bool isloading = false;
+
   addNote(NoteModel note) async {
     emit(NotesLoading());
 
     try {
       var noteBox = Hive.box<NoteModel>(kNoteBox);
-
-      emit(NotesSuccess());
       await noteBox.add(note);
+      emit(NotesSuccess());
     } catch (e) {
-      NotesError(errorMessage: e.toString());
+      emit(NotesError(errorMessage: e.toString()));
     }
   }
 }
