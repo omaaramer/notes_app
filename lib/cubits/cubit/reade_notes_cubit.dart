@@ -13,5 +13,6 @@ class ReadeNotesCubitCubit extends Cubit<ReadeNotesCubitState> {
   fitchAllNotes() async {
     var notesBox = Hive.box<NoteModel>(kNoteBox);
     notes = notesBox.values.toList();
+    emit(ReadeNotesSuccess());
   }
 }
