@@ -36,16 +36,15 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                  onPressed: () {
-                    note.delete();
-                    BlocProvider.of<ReadeNotesCubitCubit>(context)
-                        .fitchAllNotes();
-                  },
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.black,
-                    size: 30,
-                  )),
+                onPressed: () {
+                  showDeleteConfirmationDialog(context, note);
+                },
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.black,
+                  size: 30,
+                ),
+              ),
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
@@ -69,4 +68,32 @@ class NoteItem extends StatelessWidget {
       ),
     );
   }
+}
+
+void showDeleteConfirmationDialog(BuildContext context, NoteModel note) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text("Delete Note"),
+        content: const Text("Are you sure you want to delete this note?"),
+        actions: <Widget>[
+          TextButton(
+            child: const Text("Cancel"),
+            onPressed: () {
+              Navigator.of(context).pop(); // Close the dialog
+            },
+          ),
+          TextButton(
+            child: const Text("Delete"),
+            onPressed: () {
+              note.delete();
+              BlocProvider.of<ReadeNotesCubitCubit>(context).fitchAllNotes();
+              Navigator.of(context).pop(); // Close the dialog
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
